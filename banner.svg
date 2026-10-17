@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="340" rx="16" fill="url(#bgGrad)"/>
+  <rect width="1200" height="340" rx="16" fill="url(#grid)" opacity="0.55"/>
+
+  <!-- Subtle glowing orbs -->
+  <circle cx="180" cy="80" r="140" fill="#38bdf8" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="980" cy="260" r="160" fill="#818cf8" opacity="0.08" filter="url(#glow)"/>
+
+  <!-- Decorative top border bar -->
+  <rect x="0" y="0" width="1200" height="4" rx="2" fill="url(#accentGrad)"/>
+
+  <!-- Left Icon / Chip Graphic -->
+  <g transform="translate(72, 78)">
+    <rect x="0" y="0" width="140" height="140" rx="24" fill="url(#cardGrad)" stroke="#334155" stroke-width="2"/>
+    <!-- Chip pins -->
+    <g stroke="#38bdf8" stroke-width="3" stroke-linecap="round" opacity="0.8">
+      <line x1="35" y1="-12" x2="35" y2="0"/>
+      <line x1="70" y1="-12" x2="70" y2="0"/>
+      <line x1="105" y1="-12" x2="105" y2="0"/>
+      <line x1="35" y1="140" x2="35" y2="152"/>
+      <line x1="70" y1="140" x2="70" y2="152"/>
+      <line x1="105" y1="140" x2="105" y2="152"/>
+      <line x1="-12" y1="35" x2="0" y2="35"/>
+      <line x1="-12" y1="70" x2="0" y2="70"/>
+      <line x1="-12" y1="105" x2="0" y2="105"/>
+      <line x1="140" y1="35" x2="152" y2="35"/>
+      <line x1="140" y1="70" x2="152" y2="70"/>
+      <line x1="140" y1="105" x2="152" y2="105"/>
+    </g>
+    <!-- Inner Kernel Ring -->
+    <rect x="22" y="22" width="96" height="96" rx="14" fill="#0b0f19" stroke="url(#accentGrad)" stroke-width="2"/>
+    <text x="70" y="64" font-family="'JetBrains Mono', 'Cascadia Code', Consolas, monospace" font-size="22" font-weight="800" fill="#38bdf8" text-anchor="middle">.SYS</text>
+    <text x="70" y="88" font-family="'JetBrains Mono', 'Cascadia Code', Consolas, monospace" font-size="13" font-weight="600" fill="#94a3b8" text-anchor="middle">RING 0</text>
+    <rect x="42" y="98" width="56" height="4" rx="2" fill="url(#accentGrad)"/>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(248, 118)">
+    <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="54" font-weight="800" fill="#f8fafc" letter-spacing="-1">
+      IDA<tspan fill="url(#accentGrad)">Sys</tspan>
+    </text>
+    <rect x="210" y="-36" width="126" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+    <text x="273" y="-17" font-family="'JetBrains Mono', Consolas, monospace" font-size="13" font-weight="700" fill="#38bdf8" text-anchor="middle">IDA Pro 9.x</text>
+
+    <text x="0" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="21" font-weight="500" fill="#cbd5e1">
+      Automated Windows Kernel Driver (<tspan font-family="Consolas, monospace" fill="#38bdf8">.sys</tspan>) Reverse Engineering &amp; Triage Plugin
+    </text>
+
+    <text x="0" y="76" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" fill="#94a3b8">
+      WDM  •  KMDF  •  Minifilter  •  IOCTL Recovery  •  Kernel Callbacks  •  SDDL &amp; Device Security  •  Pool Tags
+    </text>
+
+    <!-- Feature Pills -->
+    <g transform="translate(0, 102)" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="600">
+      <rect x="0" y="0" width="148" height="30" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="74" y="19" fill="#38bdf8" text-anchor="middle">⚡ DriverEntry</text>
+
+      <rect x="160" y="0" width="164" height="30" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="242" y="19" fill="#818cf8" text-anchor="middle">🧭 IRP_MJ &amp; WDF</text>
+
+      <rect x="336" y="0" width="156" height="30" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="414" y="19" fill="#c084fc" text-anchor="middle">🔑 CTL_CODE Decode</text>
+
+      <rect x="504" y="0" width="170" height="30" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="589" y="19" fill="#34d399" text-anchor="middle">🛡️ Callbacks &amp; SDDL</text>
+
+      <rect x="686" y="0" width="144" height="30" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="758" y="19" fill="#fbbf24" text-anchor="middle">🏷️ Pool Tags</text>
+    </g>
+  </g>
+</svg>

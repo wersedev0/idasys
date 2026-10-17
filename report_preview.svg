@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="winBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Window Frame -->
+  <rect width="1100" height="540" rx="12" fill="url(#winBg)" stroke="#334155" stroke-width="1.5"/>
+  
+  <!-- Title Bar -->
+  <rect x="1" y="1" width="1098" height="38" rx="11" fill="url(#headerBg)"/>
+  <line x1="0" y1="39" x2="1100" y2="39" stroke="#334155" stroke-width="1"/>
+  <circle cx="22" cy="20" r="6" fill="#ef4444"/>
+  <circle cx="42" cy="20" r="6" fill="#f59e0b"/>
+  <circle cx="62" cy="20" r="6" fill="#10b981"/>
+  <text x="550" y="25" font-family="'JetBrains Mono', Consolas, monospace" font-size="13" font-weight="600" fill="#94a3b8" text-anchor="middle">
+    IDA Pro 9.4 — IDASys Driver Analysis Workspace (Ctrl+Alt+D)
+  </text>
+
+  <!-- Left Pane: Annotated Disassembly -->
+  <g transform="translate(18, 54)">
+    <rect width="525" height="230" rx="8" fill="#0b0f19" stroke="#1e293b" stroke-width="1.5"/>
+    <rect width="525" height="28" rx="8" fill="#1e293b"/>
+    <text x="14" y="19" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="700" fill="#38bdf8">
+      IDA View-A (Annotated Disassembly)
+    </text>
+
+    <g transform="translate(14, 46)" font-family="'JetBrains Mono', Consolas, monospace" font-size="11.5">
+      <text x="0" y="0" fill="#64748b">.text:140001280</text>
+      <text x="115" y="0" fill="#f8fafc">lea   rax, <tspan fill="#38bdf8">Dispatch_CREATE_CLOSE</tspan></text>
+
+      <text x="0" y="22" fill="#64748b">.text:140001287</text>
+      <text x="115" y="22" fill="#f8fafc">mov   [rsi+70h], rax</text>
+      <text x="275" y="22" fill="#10b981">; MajorFunction[IRP_MJ_CREATE]</text>
+
+      <text x="0" y="44" fill="#64748b">.text:140001292</text>
+      <text x="115" y="44" fill="#f8fafc">lea   rax, <tspan fill="#38bdf8">Dispatch_DEVICE_CONTROL</tspan></text>
+
+      <text x="0" y="66" fill="#64748b">.text:140001299</text>
+      <text x="115" y="66" fill="#f8fafc">mov   [rsi+0E0h], rax</text>
+      <text x="275" y="66" fill="#10b981">; MajorFunction[IRP_MJ_DEVICE_CONTROL]</text>
+
+      <text x="0" y="88" fill="#64748b">.text:14000108C</text>
+      <text x="115" y="88" fill="#f8fafc">cmp   ecx, <tspan fill="#fbbf24">222000h</tspan></text>
+      <text x="260" y="88" fill="#c084fc">; CTL_CODE(UNKNOWN, 0x800, BUFFERED, ANY)</text>
+
+      <text x="0" y="110" fill="#64748b">.text:140001124</text>
+      <text x="115" y="110" fill="#f8fafc">mov   edx, <tspan fill="#fbbf24">74736554h</tspan></text>
+      <text x="275" y="110" fill="#38bdf8">; Pool tag: 'Test' (0x74736554)</text>
+
+      <text x="0" y="132" fill="#64748b">.text:140001150</text>
+      <text x="115" y="132" fill="#f8fafc">call  cs:<tspan fill="#f472b6">IoCreateDevice</tspan></text>
+      <text x="275" y="132" fill="#f59e0b">; SECURE_OPEN (0x100), Exclusive=False</text>
+
+      <text x="0" y="154" fill="#64748b">.text:140001190</text>
+      <text x="115" y="154" fill="#f8fafc">call  cs:<tspan fill="#f472b6">PsSetCreateProcessNotifyRoutineEx</tspan></text>
+      <text x="365" y="154" fill="#10b981">; = ProcessNotifyEx</text>
+    </g>
+  </g>
+
+  <!-- Right Pane: IDASys IOCTL Chooser -->
+  <g transform="translate(557, 54)">
+    <rect width="525" height="230" rx="8" fill="#0b0f19" stroke="#1e293b" stroke-width="1.5"/>
+    <rect width="525" height="28" rx="8" fill="#1e293b"/>
+    <text x="14" y="19" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="700" fill="#c084fc">
+      IDASys: IOCTL codes (Double-click to jump)
+    </text>
+
+    <!-- Table Header -->
+    <g transform="translate(12, 46)" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700" fill="#94a3b8">
+      <text x="0" y="0">IOCTL</text>
+      <text x="78" y="0">DeviceType</text>
+      <text x="225" y="0">Fn</text>
+      <text x="275" y="0">Method</text>
+      <text x="398" y="0">Case EA</text>
+      <text x="468" y="0">Src</text>
+      <line x1="0" y1="8" x2="500" y2="8" stroke="#334155" stroke-width="1"/>
+    </g>
+
+    <!-- Table Rows -->
+    <g transform="translate(12, 68)" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">
+      <rect x="-4" y="-13" width="508" height="20" rx="4" fill="#1e293b" opacity="0.7"/>
+      <text x="0" y="0" fill="#fbbf24">00222000</text>
+      <text x="78" y="0" fill="#e2e8f0">FILE_DEVICE_UNKNOWN</text>
+      <text x="225" y="0" fill="#38bdf8">0x800</text>
+      <text x="275" y="0" fill="#34d399">METHOD_BUFFERED</text>
+      <text x="398" y="0" fill="#94a3b8">140001098</text>
+      <text x="468" y="0" fill="#818cf8">chain</text>
+
+      <text x="0" y="24" fill="#fbbf24">00222004</text>
+      <text x="78" y="24" fill="#e2e8f0">FILE_DEVICE_UNKNOWN</text>
+      <text x="225" y="24" fill="#38bdf8">0x801</text>
+      <text x="275" y="24" fill="#34d399">METHOD_BUFFERED</text>
+      <text x="398" y="24" fill="#94a3b8">1400010B2</text>
+      <text x="468" y="24" fill="#818cf8">chain</text>
+
+      <text x="0" y="48" fill="#fbbf24">00222007</text>
+      <text x="78" y="48" fill="#e2e8f0">FILE_DEVICE_UNKNOWN</text>
+      <text x="225" y="48" fill="#38bdf8">0x801</text>
+      <text x="275" y="48" fill="#f87171">METHOD_NEITHER</text>
+      <text x="398" y="48" fill="#94a3b8">1400010CC</text>
+      <text x="468" y="48" fill="#818cf8">switch</text>
+
+      <text x="0" y="72" fill="#fbbf24">00222400</text>
+      <text x="78" y="72" fill="#e2e8f0">FILE_DEVICE_UNKNOWN</text>
+      <text x="225" y="72" fill="#38bdf8">0x900</text>
+      <text x="275" y="72" fill="#34d399">METHOD_BUFFERED</text>
+      <text x="398" y="72" fill="#94a3b8">140001140</text>
+      <text x="468" y="72" fill="#c084fc">table</text>
+
+      <text x="0" y="96" fill="#fbbf24">0022E008</text>
+      <text x="78" y="96" fill="#e2e8f0">FILE_DEVICE_UNKNOWN</text>
+      <text x="225" y="96" fill="#38bdf8">0x802</text>
+      <text x="275" y="96" fill="#60a5fa">METHOD_IN_DIRECT</text>
+      <text x="398" y="96" fill="#94a3b8">140001180</text>
+      <text x="468" y="96" fill="#c084fc">table</text>
+    </g>
+  </g>
+
+  <!-- Bottom Pane: Output Window Report -->
+  <g transform="translate(18, 298)">
+    <rect width="1064" height="224" rx="8" fill="#0b0f19" stroke="#1e293b" stroke-width="1.5"/>
+    <rect width="1064" height="28" rx="8" fill="#1e293b"/>
+    <text x="14" y="19" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="700" fill="#10b981">
+      Output Window — IDASys Driver Report
+    </text>
+
+    <g transform="translate(16, 46)" font-family="'JetBrains Mono', Consolas, monospace" font-size="11.5" fill="#cbd5e1">
+      <text x="0" y="0" fill="#38bdf8">========================================================================</text>
+      <text x="0" y="18"><tspan fill="#94a3b8">Kernel driver :</tspan> <tspan fill="#10b981">yes</tspan>    <tspan fill="#94a3b8">Architecture :</tspan> x64    <tspan fill="#94a3b8">Framework(s) :</tspan> <tspan fill="#c084fc">WDM, KMDF, Minifilter</tspan></text>
+      <text x="0" y="36"><tspan fill="#94a3b8">Entry point   :</tspan> 0x140001480 GsDriverEntry  →  <tspan fill="#94a3b8">DriverEntry :</tspan> <tspan fill="#38bdf8">0x1400011E0 DriverEntry</tspan>  (ntddk64_win10)</text>
+      <text x="0" y="58" fill="#fbbf24">-- Dispatch &amp; Callbacks --</text>
+      <text x="0" y="76">  IRP_MJ_CREATE / CLOSE            0x140001020  Dispatch_CREATE_CLOSE</text>
+      <text x="0" y="94">  IRP_MJ_DEVICE_CONTROL            0x140001060  Dispatch_DEVICE_CONTROL</text>
+      <text x="0" y="112">  ProcessNotifyEx                  0x140001210  PsSetCreateProcessNotifyRoutineEx</text>
+      <text x="0" y="130">  ObPreOperation (Process/Thread)  0x140001250  ObRegisterCallbacks</text>
+      <text x="0" y="148">  FltPre_CREATE / FltMessageNotify 0x140001290  FltRegisterFilter / FltCreateCommunicationPort</text>
+      <text x="0" y="166" fill="#10b981">Done in 0.14s</text>
+    </g>
+  </g>
+</svg>
